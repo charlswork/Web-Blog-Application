@@ -1,0 +1,38 @@
+<%- include("header") -%>
+<h3>Add a New Post</h3>
+<form class="post-form" action="/" method="POST">
+  <textarea
+    id="postTextarea"
+    name="newPost"
+    placeholder="Write your post here..."
+    required
+  ></textarea>
+  <br />
+  <div class="button-wrapper">
+    <button type="submit">Add Post</button>
+  </div>
+</form>
+
+<h2>Posts</h2>
+<ul class="post-list">
+  <% userPost.forEach(function(post, index) { %>
+  <li class="post-item">
+    <p class="content-post"><%= post.text %></p>
+    <br />
+
+    <div class="editdelete-end">
+      <small><%= post.timestamp %></small>
+      <form action="/delete/<%= index %>" method="POST" style="display: inline">
+        <button type="submit">Delete</button>
+      </form>
+      <button onclick="editPost('<%= post.text %>', '<%= index %>')">
+        Edit
+      </button>
+    </div>
+
+    <!-- <button onclick="location.href='/edit/<%= index %>'">Edit</button> -->
+  </li>
+  <% }); %>
+</ul>
+
+<%- include("footer") -%>

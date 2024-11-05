@@ -1,0 +1,12 @@
+<h3>Edit Post</h3>
+<form class="post-form" action="/update/<%= index %>" method="POST">
+  <textarea
+    id="postTextarea"
+    name="newPost"
+    required
+  ><%= post.text %></textarea>
+  <br />
+  <div class="button-wrapper">
+    <button type="submit">Update Post</button>
+  </div>
+</form>
